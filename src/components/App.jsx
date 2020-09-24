@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import ToDoItem from "./ToDoItem";
+import Footer from "./Footer";
 
 function App() {
   const [inputText, setInputText] = useState("");
@@ -26,33 +27,36 @@ function App() {
   }
 
   return (
-    <div className="container">
-      <div className="heading">
-        <h1>To-Do List</h1>
+    <div>
+      <div className="container">
+        <div className="heading">
+          <h1>To-Do List</h1>
+        </div>
+        <div className="form">
+          <input
+            style={{ outline: "none" }}
+            onChange={handleChange}
+            type="text"
+            value={inputText}
+          />
+          <button style={{ outline: "none" }} onClick={addItem}>
+            <span>Add</span>
+          </button>
+        </div>
+        <div>
+          <ul>
+            {items.map((todoItem, index) => (
+              <ToDoItem
+                key={index}
+                id={index}
+                text={todoItem}
+                onCheck={deleteItem}
+              />
+            ))}
+          </ul>
+        </div>
       </div>
-      <div className="form">
-        <input
-          style={{ outline: "none" }}
-          onChange={handleChange}
-          type="text"
-          value={inputText}
-        />
-        <button style={{ outline: "none" }} onClick={addItem}>
-          <span>Add</span>
-        </button>
-      </div>
-      <div>
-        <ul>
-          {items.map((todoItem, index) => (
-            <ToDoItem
-              key={index}
-              id={index}
-              text={todoItem}
-              onCheck={deleteItem}
-            />
-          ))}
-        </ul>
-      </div>
+      <Footer />
     </div>
   );
 }
