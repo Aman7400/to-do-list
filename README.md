@@ -13,11 +13,15 @@ To run this app you can use any text-editor or IDE of choice having JSX (Babel J
 
 1. Download and Unzip to-do-list.zip
 2. Open terminal 
-3. cd to-do-list 
-4. run npm install 
+```
+cd to-do-list 
+run npm install 
+```
 
 ### After Install 
-5. npm start 
+```
+ npm start 
+ ```
 6. In browser type **localhost:3000**
 
 ### Add Item in list 
